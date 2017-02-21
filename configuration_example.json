@@ -1,0 +1,6 @@
+{
+    "xe_user":"user",
+    "xe_host":"hostname.com",
+    "banner_home":"/path/",
+    "environments":["dev2", "devl", "prod"]
+}
