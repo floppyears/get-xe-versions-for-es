@@ -3,8 +3,8 @@ import sys, json, subprocess
 
 # SSH into a remote server and find war files under certain directories
 def get_file_names(instance):
-    path = "*/%s/*/current/dist/*[[:digit:]].war" % instance
-    ssh = subprocess.Popen(['ssh', '-l', xe_user, xe_host, 'find', banner_home, '-type f -wholename', path, '-printf "%f\n"'],
+    path = "*/%s/*/current/dist/*.war" % instance
+    ssh = subprocess.Popen(['ssh', '-l', xe_user, xe_host, 'find', banner_home, '-type l -wholename', path, '-exec readlink {} \;'],
                            shell=False,
                            stdout=subprocess.PIPE,
                            stderr=subprocess.PIPE)
